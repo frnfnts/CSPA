@@ -77,7 +77,7 @@ def memory():
 
     mem_info = dict()
 
-    for k, v in six.iteritems(psutil.virtual_memory().__dict__):
+    for k, v in six.iteritems(psutil.virtual_memory()._asdict()):
            mem_info[k] = int(v)
            
     return mem_info
