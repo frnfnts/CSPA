@@ -54,14 +54,14 @@ class My_install(install):
     def run(self):
         try:    
             subprocess.call(['make config'], cwd = path.join(here, 'src', 
-                            'Cluster_Ensembles', 'Hypergraph_Partitioning', 'metis-5.1.0'),
+                            'CSPA', 'Hypergraph_Partitioning', 'metis-5.1.0'),
                             shell = True)
             subprocess.call(['make'], cwd = path.join(here, 'src',
-                            'Cluster_Ensembles', 'Hypergraph_Partitioning', 'metis-5.1.0'),
+                            'CSPA', 'Hypergraph_Partitioning', 'metis-5.1.0'),
                             shell = True)
         except Exception as e:
             print(e)
-            print("ERROR: Cluster_Ensembles: setup:\n"
+            print("ERROR: CSPA: setup:\n"
                   "error occurred while attempting to compile metis: "
                   "try running 'make' instead.")
             exit(1)
@@ -73,7 +73,7 @@ with open(path.join(here, 'README.md'), encoding = 'utf-8') as f:
     long_description = f.read()
     
 
-setup(name = 'Cluster_Ensembles',
+setup(name = 'CSPA',
       version = '1.16',
       
       description = "A package for determining the consensus clustering from " 
@@ -108,8 +108,8 @@ setup(name = 'Cluster_Ensembles',
                    'Topic :: Scientific/Engineering :: Visualization',
                    'Topic :: Scientific/Engineering :: Mathematics', ],
                    
-      packages = ['Cluster_Ensembles'],
-      package_dir = {'Cluster_Ensembles': 'src/Cluster_Ensembles'},
+      packages = ['CSPA'],
+      package_dir = {'CSPA': 'src/CSPA'},
       
       include_package_data = True,
       package_data = {
@@ -154,8 +154,6 @@ setup(name = 'Cluster_Ensembles',
       cmdclass = {'install': My_install},
                    
       keywords = "aggregation clustering consensus consensus-clustering CSPA "
-                 "data-mining ensemble ensemble-clustering HGPA hyper-graph "
-                 "machine-learning MCLA partition pattern-recognition "
                  "unsupervised-learning", 
 )
 
