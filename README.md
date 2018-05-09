@@ -1,3 +1,37 @@
+# CSPA from Cluster_Ensembles
+A package for CSPA(Cluster-based Similarlity Partitioning Algorithm).
+
+
+Installation
+------------
+You need
+
+* Python 3
+* numexpr (version 2.4.0 or later)
+* NumPy (version 1.9.0 or any ulterior version)
+* SciPy
+* scikit-learn
+* setuptools
+* metis
+
+Usage
+-------
+
+```
+import CSPA
+import numpy as np
+clusters = np.array([[1,1,1,2,2,2], [1,1,2,2,2,2]])  # not a list, but a np.array
+num_cluster = 2
+clst = CSPA.CSPA(clusters, num_cluster)
+#    => [0,0,0, 1,1,1]
+```
+
+You can see some usage of functions in tests.
+
+
+
+======== original readme below =========
+
 # Cluster_Ensembles
 A package for combining multiple partitions into a consolidated clustering. The combinatorial optimization problem of obtaining such a consensus clustering is reformulated in terms of approximation algorithms for graph or hyper-graph partitioning.
 
