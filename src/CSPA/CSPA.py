@@ -105,7 +105,7 @@ def CSPA(cluster_runs, N_clusters_max=None):
     s = calc_s(hga, cluster_runs.shape[0])
     adjlist = s_to_adjlist(s)
     G = metis.adjlist_to_metis(adjlist)
-    (edgecuts, parts) = metis.part_graph(G, 3)
+    (edgecuts, parts) = metis.part_graph(G, N_clusters_max)
     return parts
 
 
