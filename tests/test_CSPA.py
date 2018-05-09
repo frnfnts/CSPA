@@ -47,8 +47,8 @@ class CspaTest(unittest.TestCase):
 
     def test_CSPA(self):
         cluster_runs = np.array([[1,1,1,2,2,2], [1,1,2,2,2,2]])
-        parts = CSPA.CSPA(cluster_runs)
-        self.assertEqual(parts, [0,0,0, 2,2,2])
+        parts = CSPA.CSPA(cluster_runs, 2)
+        self.assertEqual(parts, [0,0,0, 1,1,1])
 
 
 # 6 9 1

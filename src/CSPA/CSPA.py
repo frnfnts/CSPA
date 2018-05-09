@@ -106,6 +106,7 @@ def CSPA(cluster_runs, N_clusters_max=None):
     adjlist = s_to_adjlist(s)
     G = metis.adjlist_to_metis(adjlist)
     (edgecuts, parts) = metis.part_graph(G, N_clusters_max)
+    parts = re_numbering(parts)
     return parts
 
 
@@ -145,4 +146,16 @@ def create_membership_matrix(cluster_run):
         data = np.ones(indices.size, dtype = int)
 
         return scipy.sparse.csr_matrix((data, indices, indptr), shape = (cluster_ids.size, cluster_run.size))
+
+def re_numbering(group, start=0):
+    appeard_numbers = {}
+    re_numbered = []
+    for g in group:
+        if g not in appeard_numbers:
+            re_numbered.append(start)
+            appeard_numbers[g] = start
+            start += 1
+        else:
+            re_numbered.append(appeard_numbers[g])
+    return re_numbered
 
